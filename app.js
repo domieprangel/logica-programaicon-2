@@ -1,3 +1,7 @@
+function limpiarCaja() {
+  document.getElementById("temperaturaCelsius").value = "";
+}
+
 function convertirTemperatura() {
   const celsiusInput = document.getElementById("temperaturaCelsius").value;
   const celsius = parseFloat(celsiusInput);
@@ -16,8 +20,16 @@ function convertirTemperatura() {
   const fahrenheitP = document.createElement("p");
   fahrenheitP.textContent = `Grados Fahrenheit: ${fahrenheit}`;
 
-  
-  const output = document.getElementById("resultado") || document.body;
+  // obtenemos el contenedor de resultados
+  const output = document.getElementById("resultado");
+
+  // limpiamos resultados anteriores
+  output.innerHTML = "";
+
+  // mostramos resultados nuevos
   output.appendChild(kelvinP);
   output.appendChild(fahrenheitP);
+
+  // limpiamos la caja de entrada
+  limpiarCaja();
 }
