@@ -11,8 +11,8 @@ function convertirTemperatura() {
     return;
   }
 
-  const kelvin = celsius + 273.15;
-  const fahrenheit = (celsius * 9) / 5 + 32;
+  const kelvin = (celsius + 273.15).toFixed(2);
+  const fahrenheit = ((celsius * 9) / 5 + 32).toFixed(2);
 
   const kelvinP = document.createElement("p");
   kelvinP.textContent = `Grados Kelvin: ${kelvin}`;
@@ -20,16 +20,10 @@ function convertirTemperatura() {
   const fahrenheitP = document.createElement("p");
   fahrenheitP.textContent = `Grados Fahrenheit: ${fahrenheit}`;
 
-  // obtenemos el contenedor de resultados
   const output = document.getElementById("resultado");
-
-  // limpiamos resultados anteriores
-  output.innerHTML = "";
-
-  // mostramos resultados nuevos
+  output.innerHTML = ""; // limpiar resultados anteriores
   output.appendChild(kelvinP);
   output.appendChild(fahrenheitP);
 
-  // limpiamos la caja de entrada
   limpiarCaja();
 }
